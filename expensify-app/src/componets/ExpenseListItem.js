@@ -1,18 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
 
-import { removeExpense } from '../actions/expenses'; 
 
 //description, amount, createdAt
 
 const ExpenseListItem = ({description, amount, createdAt, id, dispatch}) =>(
     <li>
-        <h3>{description}</h3>
-        <p>{amount} - {createdAt}</p>
-        <button id={id} onClick={()=>{
-            dispatch(removeExpense({id}));
-        }}>Remove</button>
+        <Link to={`/edit/${id}`}>
+            <h3>{description}</h3>
+        </Link>
+        <p>{amount} - {moment(createdAt).format('DD/MM/YYYY')}</p>
+        
     </li>
 );
 
-export default connect()(ExpenseListItem);
+export default ExpenseListItem;
