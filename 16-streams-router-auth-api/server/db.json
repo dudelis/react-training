@@ -1,0 +1,28 @@
+{
+  "streams": [
+    {
+      "id": 1
+    },
+    {
+      "title": "Title 1",
+      "description": "Desc 1",
+      "id": 2
+    },
+    {
+      "title": "Title 1",
+      "description": "Desc 1",
+      "id": 3
+    },
+    {
+      "title": "Short Title",
+      "description": "asdlfhasd;lfj sldfja;lsd jal;sdkjf alsdj fal;sdkjf la;skdjf la;sdjf l;aksdjf la;skdj lasdjf la;ksdjf ;asdf ",
+      "id": 4
+    },
+    {
+      "title": "Title with User Id ",
+      "description": "Description with User ID",
+      "userId": "100498561279497445289",
+      "id": 5
+    }
+  ]
+}
