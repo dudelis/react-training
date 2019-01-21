@@ -14,7 +14,7 @@ class StreamList extends Component {
       return (
         <div className="ui right floated content">
           <Link to={`/stream/edit/${stream.id}`} className="ui button primary">Edit</Link>          
-          <button className="ui button negative">Delete</button>
+          <Link to={`/stream/delete/${stream.id}`} className="ui button negative">Delete</Link>
         </div>
       );
     }
@@ -27,10 +27,9 @@ class StreamList extends Component {
           {this.renderAdmin(stream)}       
           <i className="large middle aligned icon camera"/>
           <div className="content">
-            {stream.title}
+            <Link to={`/stream/show/${stream.id}`} className="header">{stream.title}</Link>
             <div className="description">{stream.description}</div>
-          </div>
-          
+          </div>          
         </div>
       );
     });
