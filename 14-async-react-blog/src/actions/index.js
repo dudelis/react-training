@@ -1,10 +1,13 @@
 import jsonplaceholder from '../api/jsonplaceholder';
+import axios from 'axios';
 import _ from 'lodash';
 
 export const fetchPosts = () => {
     return async dispatch => {
-        const response  = await jsonplaceholder.get('/posts');
-
+        //const response  = await jsonplaceholder.get('/posts');
+        const response = axios.get("http://localhost:3000/abc", {
+            
+        })
         dispatch( {
             type: 'FETCH_POSTS',
             payload: response.data //we should return exactly the data needed by action!!!
