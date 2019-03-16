@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.7.1",
+    "libraryName": "minicontacts",
+    "libraryId": "289e7851-d386-4d94-84a6-28d6da11aafa",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}
