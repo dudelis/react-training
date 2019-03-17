@@ -22,7 +22,8 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
     const element: React.ReactElement<IMiniContactsProps > = React.createElement(
       MiniContacts,
       {
-        title: this.properties.title
+        title: this.properties.title,
+        client: this.context.spHttpClient
       }
     );
 

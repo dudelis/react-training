@@ -6,20 +6,27 @@ import {
 
 import ContactCard from "../ContactCard";
 
-interface IContactCardsProps {
+export interface IContactCardsProps {
   header: string;
+  items: any;
 }
 
 
-export default function ContactCards(props: any): JSX.Element {
+export default function ContactCards(props: IContactCardsProps): JSX.Element {
   return (
     <div className="ms-Grid" dir="ltr">
         <h2>{props.header}</h2>
       <div className="ms-Grid-row">
         <div className="ms-Grid-col ms-u-sm12 ms-u-md3">
-          <ContactCard />
-          <ContactCard />
-          <ContactCard />
+          {props.items.map(item => {
+            return (
+              <ContactCard
+                key={item.Contact.Id}
+                text={item.Contact.Title}
+                secondaryText={item.Contact.JobTitle}
+              />
+            )
+          })}
         </div>
       </div>
     </div>

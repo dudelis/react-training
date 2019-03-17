@@ -5,16 +5,17 @@ import {
   Persona
 } from "office-ui-fabric-react/lib/Persona";
 
-export default function ContactCard(): JSX.Element {
+export interface IContactCardProps {
+  text: string;
+  secondaryText: string;
+}
+
+export default function ContactCard(props: IContactCardProps): JSX.Element {
   return (
     <div dir="ltr">
       <Persona
-        imageUrl="./images/0.jpg"
-        imageInitials="AL"
-        text="Annie Lindqvist"
-        secondaryText="Software Engineer"
-        tertiaryText="In a meeting"
-        optionalText="Available at 4:00pm"
+        text= {props.text}
+        secondaryText= {props.secondaryText}
       />
     </div>
   );
