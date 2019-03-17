@@ -7,7 +7,7 @@ import {
 
 export default function ContactCard(): JSX.Element {
   return (
-    <div className={styles["contactCard"]} dir="ltr">
+    <div dir="ltr">
       <Persona
         imageUrl="./images/0.jpg"
         imageInitials="AL"
@@ -15,7 +15,6 @@ export default function ContactCard(): JSX.Element {
         secondaryText="Software Engineer"
         tertiaryText="In a meeting"
         optionalText="Available at 4:00pm"
-        className = {styles["ms-Persona"]}
       />
     </div>
   );

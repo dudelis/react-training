@@ -12,7 +12,8 @@ import MiniContacts from './components/MiniContacts';
 import { IMiniContactsProps } from './components/IMiniContactsProps';
 
 export interface IMiniContactsWebPartProps {
-  description: string;
+  title: string;
+
 }
 
 export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniContactsWebPartProps> {
@@ -21,7 +22,7 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
     const element: React.ReactElement<IMiniContactsProps > = React.createElement(
       MiniContacts,
       {
-        description: this.properties.description
+        title: this.properties.title
       }
     );
 
@@ -47,8 +48,8 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('title', {
+                  label: strings.Title
                 })
               ]
             }

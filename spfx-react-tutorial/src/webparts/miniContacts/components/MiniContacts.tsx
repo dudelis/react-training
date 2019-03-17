@@ -13,12 +13,9 @@ export default class MiniContacts extends React.Component<
 > {
   public render(): React.ReactElement<IMiniContactsProps> {
     return (
-      <div className={styles.miniContacts}>
-        <div className={styles.container}>
-          <h1>Mini Contacts</h1>
-          <ContactCards />
-        </div>
-      </div>
+      <div>        
+        <ContactCards header={this.props.title} />
+      </div>      
     );
   }
 }

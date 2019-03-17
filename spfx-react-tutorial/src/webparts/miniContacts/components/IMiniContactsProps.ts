@@ -1,3 +1,3 @@
 export interface IMiniContactsProps {
-  description: string;
+  title: string;
 }
