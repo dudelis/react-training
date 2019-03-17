@@ -17,17 +17,19 @@ export default function ContactCards(props: IContactCardsProps): JSX.Element {
     <div className="ms-Grid" dir="ltr">
         <h2>{props.header}</h2>
       <div className="ms-Grid-row">
-        <div className="ms-Grid-col ms-u-sm12 ms-u-md3">
+        
           {props.items.map(item => {
             return (
+              <div className="ms-Grid-col ms-u-sm12 ms-u-md4">
               <ContactCard
                 key={item.Contact.Id}
                 text={item.Contact.Title}
                 secondaryText={item.Contact.JobTitle}
+                optionalText = {item.Contact.WorkPhone}
               />
+              </div>
             )
           })}
-        </div>
       </div>
     </div>
   );

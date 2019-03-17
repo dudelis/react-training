@@ -8,14 +8,18 @@ import {
 export interface IContactCardProps {
   text: string;
   secondaryText: string;
+  imageInitials?: string;
+  optionalText?: string;
 }
 
 export default function ContactCard(props: IContactCardProps): JSX.Element {
   return (
     <div dir="ltr">
       <Persona
-        text= {props.text}
-        secondaryText= {props.secondaryText}
+        {...props}
+        // imageInitials = {props.imageInitials}
+        // text= {props.text}
+        // secondaryText= {props.secondaryText}
       />
     </div>
   );
