@@ -15,6 +15,7 @@ import { IMiniContactsProps } from './components/IMiniContactsProps';
 export interface IMiniContactsWebPartProps {
   title: string;
   count: number;
+  listName: string;
 
 }
 
@@ -27,7 +28,8 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
         title: this.properties.title,
         client: this.context.spHttpClient,
         webUrl: this.context.pageContext.web.absoluteUrl,
-        itemCount: this.properties.count
+        itemCount: this.properties.count,
+        listName: this.properties.listName
       }
     );
 
@@ -57,11 +59,16 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
                   label: strings.Title,
                   description: "Web Part Title"
                 }),
+                PropertyPaneTextField('listName', {
+                  label: strings.ListName,
+                  description: "Name of the list with Contacts"
+                }),
                 PropertyPaneSlider('count', {
                   label: strings.Count,
                   min: 1,
                   max: 40
                 })
+                
               ]
             }
           ]

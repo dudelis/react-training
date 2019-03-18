@@ -21,7 +21,8 @@
     "officeFabricIconFontName": "Page",
     "properties": {
       "title": "Mini Contacts",
-      "count": 1
+      "count": 1,
+      "listName": "keycontacts"
     }
   }]
 }

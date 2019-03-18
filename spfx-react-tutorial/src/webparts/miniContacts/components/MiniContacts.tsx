@@ -35,9 +35,9 @@ export default class MiniContacts extends React.Component<
   }
 
   private _getContacts(): void {
-    const {itemCount, webUrl}  = this.props;
+    const {itemCount, webUrl, listName}  = this.props;
     var uri =
-      `${webUrl}/_api/web/lists/getbytitle('keycontacts')/items?$top=${itemCount}&$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle`;
+      `${webUrl}/_api/web/lists/getbytitle('${listName}')/items?$top=${itemCount}&$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle`;
     this._getSPData(uri).then(data => {
       console.log("some data " + data);
       this.setState({ contacts: data });

@@ -4,4 +4,5 @@ export interface IMiniContactsProps {
   client: SPHttpClient;
   webUrl: string;
   itemCount: number;
+  listName: string;
 }

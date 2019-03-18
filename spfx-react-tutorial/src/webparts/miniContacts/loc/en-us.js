@@ -4,6 +4,7 @@ define([], function() {
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field",
     "Title": "Title",
-    "Count": "Contact Count"
+    "Count": "Contact Count",
+    "ListName": "List Name"
   }
 });
