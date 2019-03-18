@@ -36,6 +36,10 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
     ReactDom.render(element, this.domElement);
   }
 
+  protected get disableReactivePropertyChanges(){
+    return true;
+  }
+
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
   }
