@@ -36,9 +36,9 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
     ReactDom.render(element, this.domElement);
   }
 
-  protected get disableReactivePropertyChanges(){
-    return true;
-  }
+  // protected get disableReactivePropertyChanges(){
+  //   return true;
+  // }
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
@@ -71,8 +71,7 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
                   label: strings.Count,
                   min: 1,
                   max: 40
-                })
-                
+                })                
               ]
             }
           ]
