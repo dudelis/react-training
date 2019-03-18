@@ -3,6 +3,7 @@ declare interface IMiniContactsWebPartStrings {
   BasicGroupName: string;
   DescriptionFieldLabel: string;
   Title: string;
+  Count: string;
 }
 
 declare module 'MiniContactsWebPartStrings' {

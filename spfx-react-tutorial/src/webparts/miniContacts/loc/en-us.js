@@ -3,6 +3,7 @@ define([], function() {
     "PropertyPaneDescription": "Description",
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field",
-    "Title": "Title"
+    "Title": "Title",
+    "Count": "Contact Count"
   }
 });

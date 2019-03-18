@@ -4,7 +4,8 @@ import { Version } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneSlider
 } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'MiniContactsWebPartStrings';
@@ -13,6 +14,7 @@ import { IMiniContactsProps } from './components/IMiniContactsProps';
 
 export interface IMiniContactsWebPartProps {
   title: string;
+  count: number;
 
 }
 
@@ -23,7 +25,9 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
       MiniContacts,
       {
         title: this.properties.title,
-        client: this.context.spHttpClient
+        client: this.context.spHttpClient,
+        webUrl: this.context.pageContext.web.absoluteUrl,
+        itemCount: this.properties.count
       }
     );
 
@@ -50,7 +54,13 @@ export default class MiniContactsWebPart extends BaseClientSideWebPart<IMiniCont
               groupName: strings.BasicGroupName,
               groupFields: [
                 PropertyPaneTextField('title', {
-                  label: strings.Title
+                  label: strings.Title,
+                  description: "Web Part Title"
+                }),
+                PropertyPaneSlider('count', {
+                  label: strings.Count,
+                  min: 1,
+                  max: 40
                 })
               ]
             }

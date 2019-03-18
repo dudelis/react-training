@@ -20,7 +20,8 @@
     "description": { "default": "used this web part to display Key contacts for your site" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "title": "Mini Contacts"
+      "title": "Mini Contacts",
+      "count": 1
     }
   }]
 }

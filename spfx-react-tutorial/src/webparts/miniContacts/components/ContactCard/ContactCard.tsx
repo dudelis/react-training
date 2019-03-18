@@ -14,13 +14,8 @@ export interface IContactCardProps {
 
 export default function ContactCard(props: IContactCardProps): JSX.Element {
   return (
-    <div dir="ltr">
-      <Persona
-        {...props}
-        // imageInitials = {props.imageInitials}
-        // text= {props.text}
-        // secondaryText= {props.secondaryText}
-      />
-    </div>
+    <Persona
+      {...props}
+    />
   );
 }
