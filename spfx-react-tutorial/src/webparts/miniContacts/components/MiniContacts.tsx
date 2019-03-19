@@ -14,7 +14,7 @@ export default class MiniContacts extends React.Component<
   IMiniContactsProps,
   any
 > {
-  constructor(props: IMiniContactsProps){
+  constructor(props: IMiniContactsProps) {
     super(props);
 
     this.state = {
@@ -22,8 +22,17 @@ export default class MiniContacts extends React.Component<
     };
   }
 
-  public componentDidMount():void {
+  public componentDidMount(): void {
     this._getContacts();
+  }
+
+  public componentDidUpdate(prevProps) {
+    if (
+      prevProps.listName !== this.props.listName ||
+      prevProps.itemCount !== this.props.itemCount
+    ) {
+      this._getContacts();
+    }
   }
 
   public render(): React.ReactElement<IMiniContactsProps> {
@@ -35,9 +44,8 @@ export default class MiniContacts extends React.Component<
   }
 
   private _getContacts(): void {
-    const {itemCount, webUrl, listName}  = this.props;
-    var uri =
-      `${webUrl}/_api/web/lists/getbytitle('${listName}')/items?$top=${itemCount}&$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle`;
+    const { itemCount, webUrl, listName } = this.props;
+    var uri = `${webUrl}/_api/web/lists/getbytitle('${listName}')/items?$top=${itemCount}&$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle`;
     this._getSPData(uri).then(data => {
       console.log("some data " + data);
       this.setState({ contacts: data });
