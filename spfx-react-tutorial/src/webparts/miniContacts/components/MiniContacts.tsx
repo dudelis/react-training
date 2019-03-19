@@ -1,14 +1,17 @@
 import * as React from "react";
-import styles from "./MiniContacts.module.scss";
-import { IMiniContactsProps } from "./IMiniContactsProps";
-import ContactCards from "./ContactCards";
-
 import { escape } from "@microsoft/sp-lodash-subset";
 import {
   SPHttpClient,
   SPHttpClientConfiguration,
   SPHttpClientResponse
 } from "@microsoft/sp-http";
+
+import styles from "./MiniContacts.module.scss";
+import { IMiniContactsProps } from "./IMiniContactsProps";
+import ContactCards from "./ContactCards";
+import {IContact, IUser} from "../models";
+require('./MiniContacts.override.css');
+
 
 export default class MiniContacts extends React.Component<
   IMiniContactsProps,
@@ -37,7 +40,7 @@ export default class MiniContacts extends React.Component<
 
   public render(): React.ReactElement<IMiniContactsProps> {
     return (
-      <div>
+      <div className="MiniContactsOverrides">
         <ContactCards header={this.props.title} items={this.state.contacts} />
       </div>
     );
@@ -46,9 +49,25 @@ export default class MiniContacts extends React.Component<
   private _getContacts(): void {
     const { itemCount, webUrl, listName } = this.props;
     var uri = `${webUrl}/_api/web/lists/getbytitle('${listName}')/items?$top=${itemCount}&$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle`;
-    this._getSPData(uri).then(data => {
-      console.log("some data " + data);
-      this.setState({ contacts: data });
+    this._getSPData(uri).then((data) => {
+      const contacts = data as any as IContact[];
+      this._getUserInfo().then(ui =>{
+        const contactsNew = contacts.map((contact: IContact) => {
+          const user = ui.find(item => item.Id === contact.Contact.Id);
+          contact.Contact.PictureUrl = user.Picture ? user.Picture.Url : null;
+          return contact;
+        });
+        console.log(JSON.stringify(contactsNew));
+        this.setState({ contacts: contactsNew });
+      });
+    });
+  }
+
+  private _getUserInfo() : Promise<any>{
+    const { webUrl } = this.props;
+    var uri = `${webUrl}/_api/web/lists/getbytitle('User Information List')/items?$filter=UserName ne null&$select=Id,Picture,UserName`;
+    return this._getSPData(uri).then(data => {
+      return data;
     });
   }
 

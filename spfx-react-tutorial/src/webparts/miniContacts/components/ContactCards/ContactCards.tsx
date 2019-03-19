@@ -23,6 +23,7 @@ export default function ContactCards(props: IContactCardsProps): JSX.Element {
                 text={item.Contact.Title}
                 secondaryText={item.Contact.JobTitle}
                 optionalText={item.Contact.WorkPhone}
+                imageUrl={item.Contact.PictureUrl}
               />
             </div>
           );

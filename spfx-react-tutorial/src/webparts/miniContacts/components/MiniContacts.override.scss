@@ -1,0 +1,36 @@
+.MiniContactsOverrides{
+
+    .ms-Persona{
+        display: block;
+        margin: 0 auto;
+        height: auto;
+
+
+        .ms-Persona-coin{
+            display: block;
+        }
+    
+        .ms-Persona-optionalText{
+            display: block;
+        }
+    
+        .ms-Persona-imageArea{
+            display: block;
+            margin: 0 auto;
+
+            .ms-Persona-image{
+                margin-right: 0;
+            }
+        }
+        &-details{
+            display: block;
+            padding-right: 0;
+            padding-left: 0;
+            text-align: center;
+        }
+
+    }
+  
+    
+    
+}

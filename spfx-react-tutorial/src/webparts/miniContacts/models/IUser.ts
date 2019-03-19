@@ -7,4 +7,5 @@ export default interface IUser {
     WorkPhone: string;
     Department: string;
     JobTitle: string;
+    PictureUrl: string;
 }
