@@ -1,10 +1,11 @@
 .image-list {
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 0 10px;
-    grid-auto-rows: 10px;
+    grid-gap: 10px 10px;
+    grid-auto-rows: 5px;
 }
 
 .image-list img {
-    width: 250px;
+    width: 200px;
 }
