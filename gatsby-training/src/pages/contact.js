@@ -9,7 +9,7 @@ const ContactPage = () => {
       <p>This is a contacts page.</p>
       <p>
         Contact me on{" "}
-        <a href="https://twitter.com" target="_blank">
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
           Twitter
         </a>
       </p>
